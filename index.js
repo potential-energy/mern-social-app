@@ -48,10 +48,10 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
-app.use(express.static(path.join(__dirname, "/<front end app folder name>/build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/<front end app folder name>/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");
